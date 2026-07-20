@@ -1,0 +1,34 @@
+@media(max-width:992px){
+
+.sidebar{
+    margin-left:-270px;
+}
+
+.main-content{
+    margin-left:0;
+}
+
+}
+@media(max-width:992px){
+
+.sidebar{
+
+left:-260px;
+
+transition:.3s;
+
+}
+
+.sidebar.show{
+
+left:0;
+
+}
+
+.main-content{
+
+margin-left:0;
+
+}
+
+}
