@@ -1,0 +1,84 @@
+<div class="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="logo-circle">
+            <i class="bi bi-building"></i>
+        </div>
+
+        <h3>EMS</h3>
+
+        <p>Employee Management</p>
+
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <a href="{% url 'home' %}" class="active">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <li>
+            <a href="{% url 'employee_list' %}" class="list-group-item list-group-item-action">
+
+                <i class="bi bi-people-fill"></i>
+
+                 Employees
+
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'department_dashboard' %}"
+                class="list-group-item list-group-item-action">
+
+                <i class="bi bi-building"></i>
+
+                    Departments
+
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'salary_list' %}" 
+                class="list-group-item list-group-item-action">
+
+                <i class="bi bi-cash-stack"></i>
+
+                    Salary
+
+            </a>
+        </li>
+
+        <li>
+           <a href="{% url 'profile' %}" class="list-group-item list-group-item-action">
+            <i class="bi bi-person-circle"></i> Profile
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'change_password' %}">
+                <i class="bi bi-key-fill"></i>
+                <span>Change Password</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="bi bi-gear-fill"></i>
+                <span>Settings</span>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="logout-section">
+
+        <a href="{% url 'logout' %}" class="list-group-item list-group-item-action">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+
+    </div>
+
+</div>

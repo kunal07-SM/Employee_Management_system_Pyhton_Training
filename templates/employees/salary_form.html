@@ -1,0 +1,332 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Salary Form
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="container">
+
+
+<div class="row justify-content-center">
+
+
+<div class="col-lg-7">
+
+
+
+<div class="card shadow-lg border-0 rounded-4">
+
+
+<div class="card-header bg-success text-white p-4">
+
+
+<h3 class="mb-0">
+
+<i class="bi bi-cash-coin"></i>
+
+{% if form.instance.pk %}
+
+Update Salary
+
+{% else %}
+
+Add Salary
+
+{% endif %}
+
+
+</h3>
+
+
+</div>
+
+
+
+
+
+<div class="card-body p-5">
+
+
+
+<form method="POST">
+
+
+{% csrf_token %}
+
+
+
+<div class="mb-3">
+
+<label class="form-label fw-semibold">
+
+Employee
+
+</label>
+
+
+{{form.employee}}
+
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label class="form-label fw-semibold">
+
+Month
+
+</label>
+
+
+{{form.month}}
+
+
+</div>
+
+
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label class="form-label fw-semibold">
+
+Year
+
+</label>
+
+
+{{form.year}}
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+
+
+<div class="col-md-4 mb-3">
+
+
+<label class="form-label">
+
+Basic Salary
+
+</label>
+
+
+{{form.basic_salary}}
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4 mb-3">
+
+
+<label class="form-label">
+
+Bonus
+
+</label>
+
+
+{{form.bonus}}
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4 mb-3">
+
+
+<label class="form-label">
+
+Deduction
+
+</label>
+
+
+{{form.deduction}}
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="alert alert-info">
+
+
+<i class="bi bi-calculator"></i>
+
+
+Net Salary:
+
+<strong id="netSalary">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<button class="btn btn-success px-4">
+
+
+<i class="bi bi-save"></i>
+
+
+Save Salary
+
+
+</button>
+
+
+
+
+
+<a href="{% url 'salary_list' %}"
+
+class="btn btn-secondary">
+
+
+Cancel
+
+</a>
+
+
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function calculateSalary(){
+
+
+let basic = 
+Number(document.getElementById("id_basic_salary").value) || 0;
+
+
+let bonus =
+Number(document.getElementById("id_bonus").value) || 0;
+
+
+let deduction =
+Number(document.getElementById("id_deduction").value) || 0;
+
+
+
+let total =
+basic + bonus - deduction;
+
+
+
+document.getElementById("netSalary").innerHTML =
+"₹ " + total;
+
+
+
+}
+
+
+
+document
+.getElementById("id_basic_salary")
+.addEventListener(
+"keyup",
+calculateSalary
+);
+
+
+
+document
+.getElementById("id_bonus")
+.addEventListener(
+"keyup",
+calculateSalary
+);
+
+
+
+document
+.getElementById("id_deduction")
+.addEventListener(
+"keyup",
+calculateSalary
+);
+
+
+
+</script>
+
+
+
+{% endblock %}
